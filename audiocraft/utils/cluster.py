@@ -27,7 +27,7 @@ class ClusterType(Enum):
 def _guess_cluster_type() -> ClusterType:
     try:
         uname = os.uname()
-    except:
+    except AttributeError:
         return ClusterType.DEFAULT
     
     fqdn = socket.getfqdn()
